@@ -1,4 +1,4 @@
-name: Build Documentation
+name: Code coverage
 
 on:
   push:
@@ -15,12 +15,15 @@ jobs:
       with:
         python-version: 3.7
     - name: Generate coverage report
+      env:
+        HEADERS_AUTH: ${{ secrets.HEADERS_AUTH }}
+        TEST_CFG: ${{ secrets.TEST_CFG }}
       run: |
         pip install coverage
         cd tests
         curl -o test.mp3 https://www.kozco.com/tech/piano2-CoolEdit.mp3
-        echo ${{ secrets.HEADERS_AUTH }} > headers_auth.json
-        echo ${{ secrets.TEST_CFG }} > test.cfg
+        echo HEADERS_AUTH > headers_auth.json
+        echo TEST_CFG > test.cfg
         coverage run --source=../ytmusicapi -m unittest test.py
         coverage xml
     - name: Upload coverage to Codecov
