@@ -16,7 +16,7 @@ Make sure you installed the dev requirements as explained in `CONTRIBUTING.rst <
 .. code-block:: bash
 
     cd tests
-    coverage run --source=../ytmusicapi -m unittest test.py
+    coverage run --include=../ytmusicapi -m unittest test.py
 
 
 to generate a coverage report. With
