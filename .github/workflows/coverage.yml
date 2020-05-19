@@ -20,7 +20,7 @@ jobs:
         HEADERS_AUTH: ${{ secrets.HEADERS_AUTH }}
         TEST_CFG: ${{ secrets.TEST_CFG }}
       run: |
-        pip install -e ..
+        pip install -e .
         pip install coverage
         cd tests
         curl -o test.mp3 https://www.kozco.com/tech/piano2-CoolEdit.mp3
