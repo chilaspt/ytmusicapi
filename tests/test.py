@@ -1,7 +1,8 @@
 import unittest
 import configparser
 from ytmusicapi.ytmusic import YTMusic
-
+import sys
+print(sys.path)
 config = configparser.RawConfigParser()
 config.read('./test.cfg', 'utf-8')
 

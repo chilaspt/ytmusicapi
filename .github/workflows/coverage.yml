@@ -21,12 +21,10 @@ jobs:
         TEST_CFG: ${{ secrets.TEST_CFG }}
       run: |
         pip install coverage
-        ls
         cd tests
         curl -o test.mp3 https://www.kozco.com/tech/piano2-CoolEdit.mp3
         cat <<< "$HEADERS_AUTH" > headers_auth.json
         cat <<< "$TEST_CFG" > test.cfg
-        ls
         coverage run --source=../ytmusicapi -m unittest test.py
         coverage xml
     - name: Upload coverage to Codecov
